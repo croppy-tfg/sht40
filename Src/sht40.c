@@ -6,7 +6,7 @@
  * @project firmware-root
  */
 
-#include "../Inc/sht40.h"
+#include "sht40.h"
 
 #include <stddef.h>
 #include <stdint.h>
