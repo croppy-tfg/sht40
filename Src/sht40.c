@@ -50,11 +50,11 @@ SHT40_Status_t SHT40_Reset(SHT40_Handle_t *h)
     uint8_t cmd = SHT40_CMD_SOFT_RESET;
     if (HAL_I2C_Master_Transmit(h->hi2c, h->addr, &cmd, 1, 100) != HAL_OK)
         return SHT40_ERR_I2C;
-    if (h->delay) h->delay(2);
+    HAL_Delay(2);
     return SHT40_OK;
 }
 
-SHT40_Status_t sht40_Read(SHT40_Handle_t *h, float *temperature, float *humidity)
+SHT40_Status_t SHT40_Read(SHT40_Handle_t *h, float *temperature, float *humidity)
 {
     uint8_t cmd = SHT40_CMD_MEASURE_HIGH;
     uint8_t buf[6];
@@ -73,7 +73,7 @@ SHT40_Status_t sht40_Read(SHT40_Handle_t *h, float *temperature, float *humidity
         return SHT40_ERR_CRC_HUM;
 
     uint16_t raw_t = ((uint16_t)buf[0] << 8) | buf[1];
-    uint16_t raw_h = ((uint16_t)buf[3] << 8) | buf[4];
+    uint16_t raw_rh = ((uint16_t)buf[3] << 8) | buf[4];
 
     *temperature = -45.0f + 175.0f * ((float)raw_t / 65535.0f);
 

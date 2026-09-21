@@ -37,6 +37,6 @@ typedef struct {
 
 SHT40_Status_t SHT40_Init(SHT40_Handle_t *h, I2C_HandleTypeDef *hi2c, uint16_t addr);
 SHT40_Status_t SHT40_Reset(SHT40_Handle_t *h);
-SHT40_Status_t sht40_Read(SHT40_Handle_t *h, float *temperature, float *humidity);
+SHT40_Status_t SHT40_Read(SHT40_Handle_t *h, float *temperature, float *humidity);
 
 #endif //SHT40_H
