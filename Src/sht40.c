@@ -3,7 +3,7 @@
  * @author  Jose
  * @brief   Driver library for SHT40 temperature & humidity sensor using I2C for STM32.
  * @date    20/9/26
- * @project tfg
+ * @project firmware-root
  */
 
 #include "../Inc/sht40.h"
